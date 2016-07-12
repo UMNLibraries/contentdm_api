@@ -22,12 +22,7 @@ module Contentdm
     private
 
     def request
-      client.get_response(URI(url)).body
+      @response ||= client.get_response(URI(url)).body
     end
   end
 end
-
-
-
-
-
