@@ -10,7 +10,7 @@ module Contentdm
     end
 
     def metadata
-      values.first.merge(values.last).merge(id: "#{collection}/#{id}")
+      values.first.merge(values.last).merge('id' => "#{collection}/#{id}")
     end
 
     private
