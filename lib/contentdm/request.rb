@@ -1,6 +1,6 @@
 require 'net/http'
 
-module Cdm
+module Contentdm
   # Form requests to the ContentDM API
   class Request
     attr_reader :base_url, :client, :service

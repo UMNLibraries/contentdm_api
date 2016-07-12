@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class CdmTest < Minitest::Test
+class ContentdmTest < Minitest::Test
   def test_that_it_has_a_version_number
-    refute_nil ::Cdm::VERSION
+    refute_nil ::Contentdm::VERSION
   end
 end

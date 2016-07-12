@@ -1,4 +1,4 @@
-module Cdm
+module Contentdm
   class Service
     attr_reader :format, :function, :params
 

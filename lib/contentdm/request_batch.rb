@@ -1,6 +1,6 @@
 require 'json'
 
-module Cdm
+module Contentdm
   # Request multiple services all at once
   # Assumes the response format is JSON
   class RequestBatch
