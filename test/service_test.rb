@@ -1,5 +1,4 @@
 require 'test_helper'
-require_relative '../lib/contentdm/service'
 
 describe Contentdm::Service do
   describe 'when no arguments have been passed' do

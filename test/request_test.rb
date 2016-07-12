@@ -1,9 +1,7 @@
 require 'test_helper'
-require_relative '../lib/contentdm/service'
-require_relative '../lib/contentdm/request'
 
 module Contentdm
-  describe Contentdm::Request do
+  describe Request do
     it "produces a default set of url params" do
       service = Service.new(function: 'FindStuff', params: ['big_and_tall_collection', 1])
       request = Contentdm::Request.new(base_url: 'https://example.com', service: service)

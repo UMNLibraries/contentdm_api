@@ -32,5 +32,3 @@ module Contentdm
     end
   end
 end
-
-
