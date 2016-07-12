@@ -1,16 +1,13 @@
 require 'test_helper'
-require_relative '../lib/contentdm/service'
-require_relative '../lib/contentdm/request'
-require_relative '../lib/contentdm/request_batch'
 
 module Contentdm
   describe Contentdm::RequestBatch do
-    it 'fetches and merges a set of services' do
+    it 'fetches set of services' do
       services = [{function: 'wsAPIDescribe'}, {function: 'dmGetLocale'}]
       requests = Contentdm::RequestBatch.new(base_url: "https://server16022.contentdm.oclc.org/dmwebservices/index.php", services: services)
       VCR.use_cassette("request_batch") do
         response = requests.fetch
-        response.must_equal [{:service=>"wsAPIDescribe", :value=>{"version"=>"0.6"}}, {:service=>"dmGetLocale", :value=>{"locale"=>"en_US"}}]
+        response.must_equal [{:service=>"wsAPIDescribe", :value=>"{\"version\":\"0.6\"}"}, {:service=>"dmGetLocale", :value=>"{\"locale\":\"en_US\"}"}]
       end
     end
 
@@ -20,7 +17,7 @@ module Contentdm
         requests = Contentdm::RequestBatch.new(base_url: "https://server16022.contentdm.oclc.org/dmwebservices/index.php", services: services)
         VCR.use_cassette("request_batch_records_not_found") do
           response = requests.fetch
-          response.must_equal [{:service=>"dmGetItemInfo", :value=>{"code"=>"-2", "message"=>"Requested item not found", "restrictionCode"=>"-1"}}, {:service=>"dmGetCompoundObjectInfo", :value=>{"message"=>"Requested item is not compound", "code"=>"-2"}}]
+          response.must_equal [{:service=>"dmGetItemInfo", :value=>"{\"code\":\"-2\",\"message\":\"Requested item not found\",\"restrictionCode\":\"-1\"}"}, {:service=>"dmGetCompoundObjectInfo", :value=>"{\"message\":\"Requested item is not compound\",\"code\":\"-2\"}"}]
         end
       end
     end
