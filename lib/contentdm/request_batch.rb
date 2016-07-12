@@ -1,8 +1,4 @@
-require 'json'
-
 module Contentdm
-  # Request multiple services all at once
-  # Assumes the response format is JSON
   class RequestBatch
     attr_reader :service, :services, :base_url, :requester
     def initialize(base_url: '', services:[], service: Service, requester: Request)
@@ -32,7 +28,9 @@ module Contentdm
     end
 
     def request(service, base_url)
-      JSON.parse(requester.new(service: service, base_url: base_url).fetch)
+      requester.new(service: service, base_url: base_url).fetch
     end
   end
 end
+
+
