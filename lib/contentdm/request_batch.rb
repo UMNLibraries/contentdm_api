@@ -28,7 +28,7 @@ module Contentdm
 
     def responses
       service_objects.map { |service| {service: service.function,
-                                       response: request(service, base_url)} }
+                                       value: request(service, base_url)} }
     end
 
     def request(service, base_url)
