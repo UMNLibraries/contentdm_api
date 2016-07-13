@@ -1,4 +1,5 @@
 module Contentdm
+  # Make a batch of requests to the CONTENTdm API and combine them
   class RequestBatch
     attr_reader :service, :service_configs, :base_url, :requester
     # @param [String] base_url URL to the CONTENTdm API
@@ -12,12 +13,12 @@ module Contentdm
     #
     # @return [Void]
     def initialize(base_url: '',
-                   service_configs:[],
+                   service_configs: [],
                    service: Service,
                    requester: Request)
 
       @service   = service
-      @service_configs  = service_configs
+      @configs   = service_configs
       @base_url  = base_url
       @requester = requester
     end
@@ -32,7 +33,7 @@ module Contentdm
     private
 
     def service_objects
-      service_configs.map {|s| new_service(s[:function], s.fetch(:params, [])) }
+      configs.map { |s| new_service(s[:function], s.fetch(:params, [])) }
     end
 
     def new_service(function, params)
@@ -40,8 +41,9 @@ module Contentdm
     end
 
     def responses
-      service_objects.map { |service| {service: service.function,
-                                       value: request(service, base_url)} }
+      service_objects.map do |service|
+        { service: service.function, value: request(service, base_url) }
+      end
     end
 
     def request(service, base_url)

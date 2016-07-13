@@ -1,10 +1,8 @@
 module Contentdm
-
   # A convenience method to retrive a Ruby hash of Item data from the CONTENTdm
   # API
   class CompoundItem
     attr_reader :collection, :id, :requester, :base_url, :response
-
 
     # @param [String] base_url URL to the CONTENTdm API
     #  "http://CdmServer.com:port/dmwebservices/index.php"

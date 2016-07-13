@@ -5,8 +5,8 @@ module Contentdm
     attr_reader :format, :function, :params
 
     # @param [String] function function A CONTENTdm function
-    # @param [Array] params A set of params for a given function. Parameters must be
-    #   passed as an array in the order specified in the CONTENTdm API
+    # @param [Array] params A set of params for a given function. Parameters
+    #   must be passed as an array in the order specified in the CONTENTdm API
     #   documentation.
     #  "http://CdmServer.com:port/dmwebservices/index.php"
     # @param [String] format Either XML or JSON. Defaults to JSON.
@@ -17,7 +17,6 @@ module Contentdm
       @function = function
       @params   = params
     end
-
 
     # URL params for a given service
     #

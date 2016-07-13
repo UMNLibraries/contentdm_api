@@ -1,5 +1,4 @@
 require 'net/http'
-
 module Contentdm
   # Form requests to the ContentDM API
   class Request
@@ -13,7 +12,7 @@ module Contentdm
     # @return [Void]
     def initialize(base_url: '', client: Net::HTTP, service: Service.new)
       @base_url = base_url
-      @client  =  client
+      @client   = client
       @service  = service
     end
 
