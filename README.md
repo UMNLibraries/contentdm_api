@@ -1,8 +1,6 @@
-# Contentdm
+# CONTENTdm API for Ruby
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/contentdm`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Ruby bindings for the CONTENTdm API.
 
 ## Installation
 
@@ -20,9 +18,46 @@ Or install it yourself as:
 
     $ gem install contentdm
 
-## Usage
+Include the library in your code
 
-TODO: Write usage instructions here
+`require 'contentdm'`
+
+
+## Quick Start - Fetch Item Metadata
+
+
+### Retrieve Item Metadata Along With Its Compound Object Info (If it Exists)
+
+```
+Contentdm::CompoundItem.new(base_url: 'http://www.example.com', collection: 'sph', id: 1234).metadata
+```
+
+CompoundItem has been added as a convenience. It is a wrapper around the `Contentdm::RequestBatch` feature (see below).
+
+### Call a CONTENTdm API function directoy
+
+The following shows the default keyword arguments for the Service class. Please refer to the [CONTENTdm API](https://www.oclc.org/support/services/contentdm/help/customizing-website-help/other-customizations/contentdm-api-reference.en.html) for details on each API function and corresponding parameters. Parameters must be passed as an array in the order specified in the CONTENTdm API instructions.
+
+```
+service = Contentdm::Service.new(function: 'wsAPIDescribe', params: [], format: 'json')
+
+response = Contentdm::Request.new(base_url: 'http://www.example.com', service: service)
+```
+
+### Request multiple CONTENTdm functions/endpoints at once
+
+```
+services = [{function: 'dmGetItemInfo', params: [collection, id]},
+            {function: 'dmGetCompoundObjectInfo', params: [collection, id]}]
+
+responses = Contentdm::RequestBatch.new(base_url: base_url, services: services).fetch
+```
+
+You may also use the Response class to parse and handle API inconsistencies (e.g. calls for non-existent collections result in non-JSON HTML responses):
+
+```
+responses.map { |resp| Contentdm::Response.new(raw_data: resp[:value]).parsed }
+```
 
 ## Development
 
@@ -32,10 +67,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/contentdm. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/UMNLibraries/contentdm. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
+MIT
