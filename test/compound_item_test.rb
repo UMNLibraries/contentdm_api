@@ -6,7 +6,7 @@ module Contentdm
       it 'returns an array of hashes' do
         VCR.use_cassette("invalid_compound_request") do
           compound = CompoundItem.new(base_url: 'https://server16022.contentdm.oclc.org/dmwebservices/index.php')
-          compound.metadata.must_equal({'id' => '/'})
+          compound.metadata.must_equal({'id' => '/0'})
         end
       end
     end

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://server16022.contentdm.oclc.org/dmwebservices/index.php?q=dmGetItemInfo///json
+    uri: https://server16022.contentdm.oclc.org/dmwebservices/index.php?q=dmGetItemInfo//0/json
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 12 Jul 2016 20:18:54 GMT
+      - Wed, 13 Jul 2016 18:27:28 GMT
       Server:
       - Apache
       Vary:
@@ -35,10 +35,10 @@ http_interactions:
       string: |
         Error looking up collection /<br>
     http_version: 
-  recorded_at: Tue, 12 Jul 2016 20:18:53 GMT
+  recorded_at: Wed, 13 Jul 2016 18:27:27 GMT
 - request:
     method: get
-    uri: https://server16022.contentdm.oclc.org/dmwebservices/index.php?q=dmGetCompoundObjectInfo///json
+    uri: https://server16022.contentdm.oclc.org/dmwebservices/index.php?q=dmGetCompoundObjectInfo//0/json
     body:
       encoding: US-ASCII
       string: ''
@@ -57,7 +57,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 12 Jul 2016 20:18:54 GMT
+      - Wed, 13 Jul 2016 18:27:28 GMT
       Server:
       - Apache
       Vary:
@@ -70,10 +70,10 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"message":"Requested item is not compound","code":"-2"}'
     http_version: 
-  recorded_at: Tue, 12 Jul 2016 20:18:54 GMT
+  recorded_at: Wed, 13 Jul 2016 18:27:28 GMT
 - request:
     method: get
-    uri: https://server16022.contentdm.oclc.org/dmwebservices/index.php?q=dmGetItemInfo///json
+    uri: https://server16022.contentdm.oclc.org/dmwebservices/index.php?q=dmGetItemInfo//0/json
     body:
       encoding: US-ASCII
       string: ''
@@ -92,7 +92,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 12 Jul 2016 20:18:54 GMT
+      - Wed, 13 Jul 2016 18:27:28 GMT
       Server:
       - Apache
       Vary:
@@ -106,10 +106,10 @@ http_interactions:
       string: |
         Error looking up collection /<br>
     http_version: 
-  recorded_at: Tue, 12 Jul 2016 20:18:54 GMT
+  recorded_at: Wed, 13 Jul 2016 18:27:28 GMT
 - request:
     method: get
-    uri: https://server16022.contentdm.oclc.org/dmwebservices/index.php?q=dmGetCompoundObjectInfo///json
+    uri: https://server16022.contentdm.oclc.org/dmwebservices/index.php?q=dmGetCompoundObjectInfo//0/json
     body:
       encoding: US-ASCII
       string: ''
@@ -128,7 +128,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 12 Jul 2016 20:18:55 GMT
+      - Wed, 13 Jul 2016 18:27:28 GMT
       Server:
       - Apache
       Vary:
@@ -141,5 +141,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"message":"Requested item is not compound","code":"-2"}'
     http_version: 
-  recorded_at: Tue, 12 Jul 2016 20:18:54 GMT
+  recorded_at: Wed, 13 Jul 2016 18:27:28 GMT
 recorded_with: VCR 3.0.3

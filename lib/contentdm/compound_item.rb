@@ -1,7 +1,13 @@
 module Contentdm
   class CompoundItem
     attr_reader :collection, :id, :requester, :base_url, :response
-    def initialize(base_url: '', collection: '', id: '', requester: RequestBatch, response: Response)
+
+
+    def initialize(base_url: '',
+                   collection: '',
+                   id: 0,
+                   requester: RequestBatch,
+                   response: Response)
       @collection = collection
       @id         = id
       @requester  = requester
