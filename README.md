@@ -18,7 +18,7 @@ Or install it yourself as:
 
     $ gem install contentdm
 
-Include the library in your code
+Include the library in your code:
 
 `require 'contentdm'`
 
@@ -26,7 +26,7 @@ Include the library in your code
 ## Quick Start - Fetch Item Metadata
 
 
-### Retrieve Item Metadata Along With Its Compound Object Info (If it Exists)
+**Retrieve Item Metadata Along With Its Compound Object Info (If it Exists)**
 
 ```
 Contentdm::CompoundItem.new(base_url: 'http://www.example.com', collection: 'sph', id: 1234).metadata
@@ -34,7 +34,7 @@ Contentdm::CompoundItem.new(base_url: 'http://www.example.com', collection: 'sph
 
 CompoundItem has been added as a convenience. It is a wrapper around the `Contentdm::RequestBatch` feature (see below).
 
-### Call a CONTENTdm API function directoy
+**Call a CONTENTdm API function directoy**
 
 The following shows the default keyword arguments for the Service class. Please refer to the [CONTENTdm API](https://www.oclc.org/support/services/contentdm/help/customizing-website-help/other-customizations/contentdm-api-reference.en.html) for details on each API function and corresponding parameters. Parameters must be passed as an array in the order specified in the CONTENTdm API instructions.
 
@@ -44,13 +44,13 @@ service = Contentdm::Service.new(function: 'wsAPIDescribe', params: [], format: 
 response = Contentdm::Request.new(base_url: 'http://www.example.com', service: service)
 ```
 
-### Request multiple CONTENTdm functions/endpoints at once
+**Request multiple CONTENTdm functions/endpoints at once**
 
 ```
-services = [{function: 'dmGetItemInfo', params: [collection, id]},
-            {function: 'dmGetCompoundObjectInfo', params: [collection, id]}]
+service_configs = [{function: 'dmGetItemInfo', params: [collection, id]},
+                   {function: 'dmGetCompoundObjectInfo', params: [collection, id]}]
 
-responses = Contentdm::RequestBatch.new(base_url: base_url, services: services).fetch
+responses = Contentdm::RequestBatch.new(base_url: base_url, service_configs: service_configs).fetch
 ```
 
 You may also use the Response class to parse and handle API inconsistencies (e.g. calls for non-existent collections result in non-JSON HTML responses):

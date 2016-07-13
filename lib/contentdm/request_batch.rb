@@ -1,13 +1,30 @@
 module Contentdm
   class RequestBatch
-    attr_reader :service, :services, :base_url, :requester
-    def initialize(base_url: '', services:[], service: Service, requester: Request)
+    attr_reader :service, :service_configs, :base_url, :requester
+    # @param [String] base_url URL to the CONTENTdm API
+    #  "http://CdmServer.com:port/dmwebservices/index.php"
+    # @param [Array] service_configs An array of hash configurations for
+    #   individual services
+    #  "http://CdmServer.com:port/dmwebservices/index.php"
+    # @param [Object] service A Service class to tell the Request class
+    #   which function, params and format to request of the CONTENTdm API
+    # @param [Object] requester A class to form requests to the ContentDM API
+    #
+    # @return [Void]
+    def initialize(base_url: '',
+                   service_configs:[],
+                   service: Service,
+                   requester: Request)
+
       @service   = service
-      @services  = services
+      @service_configs  = service_configs
       @base_url  = base_url
       @requester = requester
     end
 
+    # Fetch data from the CONTENTdm API
+    #
+    # @return [Array] an array of hashes containing Request response data
     def fetch
       responses
     end
@@ -15,7 +32,7 @@ module Contentdm
     private
 
     def service_objects
-      services.map {|s| new_service(s[:function], s.fetch(:params, [])) }
+      service_configs.map {|s| new_service(s[:function], s.fetch(:params, [])) }
     end
 
     def new_service(function, params)
