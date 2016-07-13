@@ -42,16 +42,16 @@ The following shows the default keyword arguments for the Service class. Please 
 ```
 service = Contentdm::Service.new(function: 'wsAPIDescribe', params: [], format: 'json')
 
-response = Contentdm::Request.new(base_url: 'http://www.example.com', service: service)
+response = Contentdm::Request.new(base_url: 'https://server16022.contentdm.oclc.org/dmwebservices/index.php', service: service)
 ```
 
 **Request multiple CONTENTdm functions/endpoints at once**
 
 ```
-service_configs = [{function: 'dmGetItemInfo', params: [collection, id]},
-                   {function: 'dmGetCompoundObjectInfo', params: [collection, id]}]
+service_configs = [{function: 'dmGetItemInfo', params: ['p16022coll39', 446]},
+                   {function: 'dmGetCompoundObjectInfo', params: ['p16022coll39', 446]}]
 
-responses = Contentdm::RequestBatch.new(base_url: base_url, service_configs: service_configs).fetch
+responses = Contentdm::RequestBatch.new(base_url: 'https://server16022.contentdm.oclc.org/dmwebservices/index.php', service_configs: service_configs).fetch
 ```
 
 You may also use the Response class to parse and handle API inconsistencies (e.g. calls for non-existent collections result in non-JSON HTML responses):
