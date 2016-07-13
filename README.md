@@ -29,7 +29,8 @@ Include the library in your code:
 **Retrieve Item Metadata Along With Its Compound Object Info (If it Exists)**
 
 ```
-Contentdm::CompoundItem.new(base_url: 'http://www.example.com', collection: 'sph', id: 1234).metadata
+Contentdm::CompoundItem.new(base_url: 'https://server16022.contentdm.oclc.org/dmwebservices/index.php', 
+                            collection: 'p16022coll39', id: 446).metadata
 ```
 
 CompoundItem has been added as a convenience. It is a wrapper around the `Contentdm::RequestBatch` feature (see below).
