@@ -1,7 +1,7 @@
 module Contentdm
   # Make a batch of requests to the CONTENTdm API and combine them
   class RequestBatch
-    attr_reader :service, :service_configs, :base_url, :requester
+    attr_reader :service, :configs, :base_url, :requester
     # @param [String] base_url URL to the CONTENTdm API
     #  "http://CdmServer.com:port/dmwebservices/index.php"
     # @param [Array] service_configs An array of hash configurations for
