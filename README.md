@@ -1,6 +1,6 @@
 # CONTENTdm API for Ruby
 
-Ruby bindings for the CONTENTdm API.
+Ruby bindings for the [CONTENTdm API](https://www.oclc.org/support/services/contentdm/help/customizing-website-help/other-customizations/contentdm-api-reference.en.html).
 
 ## Installation
 
