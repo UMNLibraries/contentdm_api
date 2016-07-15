@@ -1,5 +1,7 @@
 # CONTENTdm API for Ruby
 
+[![Build Status](https://travis-ci.org/UMNLibraries/contentdm_api.svg?branch=master)](https://travis-ci.org/UMNLibraries/contentdm_api)
+
 Ruby bindings for the [CONTENTdm API](https://www.oclc.org/support/services/contentdm_api/help/customizing-website-help/other-customizations/contentdm_api-api-reference.en.html).
 
 ## Installation
