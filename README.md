@@ -41,7 +41,7 @@ The following shows the default keyword arguments for the Service class. Please 
 ```
 service = CONTENTdmAPI::Service.new(function: 'wsAPIDescribe', params: [], format: 'json')
 
-response = CONTENTdmAPI::Request.new(base_url: 'https://server16022.contentdm.oclc.org/dmwebservices/index.php', service: service)
+response = CONTENTdmAPI::Request.new(base_url: 'https://server16022.contentdm.oclc.org/dmwebservices/index.php', service: service).fetch
 ```
 
 **Request multiple CONTENTdm functions/endpoints at once**
