@@ -50,7 +50,7 @@ response = CONTENTdmAPI::Request.new(base_url: 'https://server16022.contentdm.oc
 service_configs = [{function: 'dmGetItemInfo', params: ['p16022coll39', 446]},
                    {function: 'dmGetCompoundObjectInfo', params: ['p16022coll39', 446]}]
 
-responses = CONTENTdmAPI::RequestBatch.new(base_url: 'https://server16022.contentdm_api.oclc.org/dmwebservices/index.php', service_configs: service_configs).fetch
+responses = CONTENTdmAPI::RequestBatch.new(base_url: 'https://server16022.contentdm.oclc.org/dmwebservices/index.php', service_configs: service_configs).fetch
 ```
 
 You may also use the Response class to parse and handle API inconsistencies (e.g. calls for non-existent collections result in non-JSON HTML responses):
