@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Chad Fennell"]
   spec.email         = ["fenne035@umn.edu"]
 
-  spec.summary       = %q{Ruby bindings for the ContentDM API}
+  spec.summary       = %q{Ruby bindings for the CONTENTdm API}
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
