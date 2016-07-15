@@ -11,7 +11,7 @@ module CONTENTdmAPI
     describe "when given data with a bad collection" do
       it "returns a JSON formatted error code" do
         response = Response.new(raw_data: 'Error finding Collection foo')
-        response.parsed.must_equal({"code"=> '-2', "message"=>"776: unexpected token at 'Error finding Collection foo'"})
+        response.parsed['code'].must_equal '-2'
       end
     end
   end
