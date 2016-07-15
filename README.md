@@ -23,13 +23,13 @@ Include the library in your code:
 `require 'contentdm'`
 
 
-## Quick Start - Fetch Item Metadata
+## Quick Start
 
 
 **Retrieve Item Metadata Along With Its Compound Object Info (If it Exists)**
 
 ```
-Contentdm::CompoundItem.new(base_url: 'https://server16022.contentdm.oclc.org/dmwebservices/index.php', 
+Contentdm::CompoundItem.new(base_url: 'https://server16022.contentdm.oclc.org/dmwebservices/index.php',
                             collection: 'p16022coll39', id: 446).metadata
 ```
 
