@@ -1,4 +1,4 @@
-module Contentdm
+module CONTENTdmAPI
   # A convenience method to retrive a Ruby hash of Item data from the CONTENTdm
   # API
   class CompoundItem

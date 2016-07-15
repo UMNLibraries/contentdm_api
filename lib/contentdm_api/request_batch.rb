@@ -1,4 +1,4 @@
-module Contentdm
+module CONTENTdmAPI
   # Make a batch of requests to the CONTENTdm API and combine them
   class RequestBatch
     attr_reader :service, :configs, :base_url, :requester

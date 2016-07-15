@@ -1,13 +1,13 @@
 # CONTENTdm API for Ruby
 
-Ruby bindings for the [CONTENTdm API](https://www.oclc.org/support/services/contentdm/help/customizing-website-help/other-customizations/contentdm-api-reference.en.html).
+Ruby bindings for the [CONTENTdm API](https://www.oclc.org/support/services/contentdm_api/help/customizing-website-help/other-customizations/contentdm_api-api-reference.en.html).
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'contentdm'
+gem 'contentdm_api'
 ```
 
 And then execute:
@@ -16,11 +16,11 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install contentdm
+    $ gem install contentdm_api
 
 Include the library in your code:
 
-`require 'contentdm'`
+`require 'contentdm_api'`
 
 
 ## Quick Start
@@ -29,20 +29,19 @@ Include the library in your code:
 **Retrieve Item Metadata Along With Its Compound Object Info (If it Exists)**
 
 ```
-Contentdm::CompoundItem.new(base_url: 'https://server16022.contentdm.oclc.org/dmwebservices/index.php',
-                            collection: 'p16022coll39', id: 446).metadata
+CONTENTdmAPI::CompoundItem.new(base_url: 'https://server16022.contentdm.oclc.org/dmwebservices/index.php', collection: 'p16022coll39', id: 446).metadata
 ```
 
-CompoundItem has been added as a convenience. It is a wrapper around the `Contentdm::RequestBatch` feature (see below).
+CompoundItem has been added as a convenience. It is a wrapper around the `CONTENTdmAPI::RequestBatch` feature (see below).
 
 **Call a CONTENTdm API function directoy**
 
-The following shows the default keyword arguments for the Service class. Please refer to the [CONTENTdm API](https://www.oclc.org/support/services/contentdm/help/customizing-website-help/other-customizations/contentdm-api-reference.en.html) for details on each API function and corresponding parameters. Parameters must be passed as an array in the order specified in the CONTENTdm API instructions.
+The following shows the default keyword arguments for the Service class. Please refer to the [CONTENTdm API](https://www.oclc.org/support/services/contentdm_api/help/customizing-website-help/other-customizations/contentdm_api-api-reference.en.html) for details on each API function and corresponding parameters. Parameters must be passed as an array in the order specified in the CONTENTdm API instructions.
 
 ```
-service = Contentdm::Service.new(function: 'wsAPIDescribe', params: [], format: 'json')
+service = CONTENTdmAPI::Service.new(function: 'wsAPIDescribe', params: [], format: 'json')
 
-response = Contentdm::Request.new(base_url: 'https://server16022.contentdm.oclc.org/dmwebservices/index.php', service: service)
+response = CONTENTdmAPI::Request.new(base_url: 'https://server16022.contentdm.oclc.org/dmwebservices/index.php', service: service)
 ```
 
 **Request multiple CONTENTdm functions/endpoints at once**
@@ -51,13 +50,13 @@ response = Contentdm::Request.new(base_url: 'https://server16022.contentdm.oclc.
 service_configs = [{function: 'dmGetItemInfo', params: ['p16022coll39', 446]},
                    {function: 'dmGetCompoundObjectInfo', params: ['p16022coll39', 446]}]
 
-responses = Contentdm::RequestBatch.new(base_url: 'https://server16022.contentdm.oclc.org/dmwebservices/index.php', service_configs: service_configs).fetch
+responses = CONTENTdmAPI::RequestBatch.new(base_url: 'https://server16022.contentdm_api.oclc.org/dmwebservices/index.php', service_configs: service_configs).fetch
 ```
 
 You may also use the Response class to parse and handle API inconsistencies (e.g. calls for non-existent collections result in non-JSON HTML responses):
 
 ```
-responses.map { |resp| Contentdm::Response.new(raw_data: resp[:value]).parsed }
+responses.map { |resp| CONTENTdmAPI::Response.new(raw_data: resp[:value]).parsed }
 ```
 
 ## Development
@@ -68,7 +67,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/UMNLibraries/contentdm. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/UMNLibraries/contentdm_api. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License

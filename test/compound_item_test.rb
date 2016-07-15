@@ -1,6 +1,6 @@
 require 'test_helper'
 
-module Contentdm
+module CONTENTdmAPI
   describe CompoundItem do
     describe "when no collection or id have been provided" do
       it 'returns an array of hashes' do

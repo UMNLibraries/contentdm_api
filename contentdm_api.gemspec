@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'contentdm/version'
+require 'contentdm_api/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "contentdm"
-  spec.version       = Contentdm::VERSION
+  spec.name          = "contentdm_api"
+  spec.version       = CONTENTdmAPI::VERSION
   spec.authors       = ["Chad Fennell"]
   spec.email         = ["fenne035@umn.edu"]
 

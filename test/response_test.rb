@@ -1,6 +1,6 @@
 require 'test_helper'
 
-module Contentdm
+module CONTENTdmAPI
   describe Response do
     describe "when given valid JSON" do
       it "returns a Ruby hash" do

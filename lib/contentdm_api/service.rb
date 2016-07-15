@@ -1,4 +1,4 @@
-module Contentdm
+module CONTENTdmAPI
   # A class to tell the Request class which function, params and format to
   # request of the CONTENTdm API
   class Service
