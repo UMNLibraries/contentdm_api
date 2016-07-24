@@ -1,6 +1,6 @@
 module CONTENTdmAPI
   # A convenience method to retrive a Ruby hash of Item data from the CONTENTdm
-  # API
+  # API along with an optional call to fetch Compound Object Info
   class Item
     attr_reader :collection, :id, :requester, :base_url, :response, :with_compound
 
@@ -9,6 +9,7 @@ module CONTENTdmAPI
     # @param [String] collection The CONTENTdm API calls this an "alias"
     # @param [Integer] id The CONTENTdm API calls this a "pointer". It is the
     #   identifier for a a given CONTENTdm item.
+    # @param [Boolean] with_compound Include compound object info?
     # @param [Object] requester A class to make requests of the API.
     # @param [Object] response A class to parse API responses.
     #
