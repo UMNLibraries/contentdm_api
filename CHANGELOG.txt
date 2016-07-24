@@ -1,0 +1,2 @@
+version 0.1.0 Initial release
+version 0.2.0 Switch from a CompoundItem to Item with a :with_compound flag convenience method
