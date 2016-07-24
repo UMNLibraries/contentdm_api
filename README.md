@@ -61,6 +61,8 @@ You may also use the Response class to parse and handle API inconsistencies (e.g
 responses.map { |resp| CONTENTdmAPI::Response.new(raw_data: resp[:value]).parsed }
 ```
 
+## [API Documentation][(http://www.rubydoc.info/gems/contentdm_api)
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
