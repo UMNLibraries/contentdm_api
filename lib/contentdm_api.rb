@@ -7,4 +7,5 @@ require_relative './contentdm_api/request_batch'
 require_relative './contentdm_api/service'
 require_relative './contentdm_api/response'
 require_relative './contentdm_api/compound_item'
+require_relative './contentdm_api/item'
 

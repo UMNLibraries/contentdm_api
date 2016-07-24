@@ -1,8 +1,8 @@
 module CONTENTdmAPI
   # A convenience method to retrive a Ruby hash of Item data from the CONTENTdm
   # API
-  class CompoundItem
-    attr_reader :collection, :id, :requester, :base_url, :response
+  class Item
+    attr_reader :collection, :id, :requester, :base_url, :response, :with_compound
 
     # @param [String] base_url URL to the CONTENTdm API
     #  "http://CdmServer.com:port/dmwebservices/index.php"
@@ -16,16 +16,18 @@ module CONTENTdmAPI
     def initialize(base_url: '',
                    collection: '',
                    id: 0,
+                   with_compound: true,
                    requester: RequestBatch,
                    response: Response)
-      @collection = collection
-      @id         = id
-      @requester  = requester
-      @base_url   = base_url
-      @response   = response
+      @collection    = collection
+      @id            = id
+      @with_compound = with_compound
+      @requester     = requester
+      @base_url      = base_url
+      @response      = response
     end
 
-    # A hash of metadata with compound data for a given item
+    # A hash of item metadata with optional compound data for the given item
     #
     # @return [Hash] Merged responses from the dmGetItemInfo and
     # dmGetCompoundObjectInfo functions
@@ -52,10 +54,15 @@ module CONTENTdmAPI
     end
 
     def service_configs
-      [
-        { function: 'dmGetItemInfo', params: [collection, id] },
-        { function: 'dmGetCompoundObjectInfo', params: [collection, id] }
-      ]
+      (with_compound) ? item_config.concat(compound_config) : item_config
+    end
+
+    def item_config
+      [{ function: 'dmGetItemInfo', params: [collection, id] }]
+    end
+
+    def compound_config
+      [{ function: 'dmGetCompoundObjectInfo', params: [collection, id] }]
     end
   end
 end

@@ -31,10 +31,10 @@ Include the library in your code:
 **Retrieve Item Metadata Along With Its Compound Object Info (If it Exists)**
 
 ```
-CONTENTdmAPI::CompoundItem.new(base_url: 'https://server16022.contentdm.oclc.org/dmwebservices/index.php', collection: 'p16022coll39', id: 446).metadata
+CONTENTdmAPI::Item.new(base_url: 'https://server16022.contentdm.oclc.org/dmwebservices/index.php', collection: 'p16022coll39', id: 446).metadata
 ```
 
-CompoundItem has been added as a convenience. It is a wrapper around the `CONTENTdmAPI::RequestBatch` feature (see below).
+Item has been added as a convenience. It is a wrapper around the `CONTENTdmAPI::RequestBatch` feature (see below). Set `with_compound: false` to avoid attempting the dmGetCompoundObjectInfo lookup call.
 
 **Call a CONTENTdm API function directoy**
 
