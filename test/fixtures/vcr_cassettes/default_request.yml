@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 15 Jul 2016 17:46:32 GMT
+      - Tue, 22 Nov 2016 18:00:11 GMT
       Server:
       - Apache
       Vary:
@@ -34,5 +34,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"version":"0.6"}'
     http_version: 
-  recorded_at: Fri, 15 Jul 2016 17:46:32 GMT
+  recorded_at: Tue, 22 Nov 2016 18:00:11 GMT
 recorded_with: VCR 3.0.3

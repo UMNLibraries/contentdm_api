@@ -2,7 +2,13 @@ module CONTENTdmAPI
   # A convenience method to retrive a Ruby hash of Item data from the CONTENTdm
   # API along with an optional call to fetch Compound Object Info
   class Item
-    attr_reader :collection, :id, :requester, :base_url, :response, :with_compound
+    attr_reader :collection,
+                :id,
+                :requester,
+                :base_url,
+                :response,
+                :with_compound,
+                :page
 
     # @param [String] base_url URL to the CONTENTdm API
     #  "http://CdmServer.com:port/dmwebservices/index.php"
@@ -10,6 +16,8 @@ module CONTENTdmAPI
     # @param [Integer] id The CONTENTdm API calls this a "pointer". It is the
     #   identifier for a a given CONTENTdm item.
     # @param [Boolean] with_compound Include compound object info?
+    # @param [Boolean] enrich_compount Fetch and merge full item info for each
+    # compound?
     # @param [Object] requester A class to make requests of the API.
     # @param [Object] response A class to parse API responses.
     #
@@ -20,12 +28,12 @@ module CONTENTdmAPI
                    with_compound: true,
                    requester: RequestBatch,
                    response: Response)
-      @collection    = collection
-      @id            = id
-      @with_compound = with_compound
-      @requester     = requester
-      @base_url      = base_url
-      @response      = response
+      @collection       = collection
+      @id               = id
+      @with_compound    = with_compound
+      @requester        = requester
+      @base_url         = base_url
+      @response         = response
     end
 
     # A hash of item metadata with optional compound data for the given item
@@ -33,13 +41,28 @@ module CONTENTdmAPI
     # @return [Hash] Merged responses from the dmGetItemInfo and
     # dmGetCompoundObjectInfo functions
     def metadata
-      values.first.merge(values.last).merge('id' => "#{collection}/#{id}")
+      result.merge('id' => "#{collection}/#{id}")
+            .merge('page' => compounds(result.fetch('page', [])))
     end
 
     private
 
+    def result
+      values.first.merge(values.last)
+    end
+
+    def compounds(page)
+      return page unless with_compound
+      page.map do |compound|
+        compound.merge(self.class.new(base_url: base_url,
+                                      collection: collection,
+                                      id: compound['pageptr'],
+                                      with_compound: false).metadata)
+      end
+    end
+
     def remove_errors(value)
-      (value['code'] != '-2') ? value : {}
+      value['code'] != '-2' ? value : {}
     end
 
     def values
@@ -55,7 +78,7 @@ module CONTENTdmAPI
     end
 
     def service_configs
-      (with_compound) ? item_config.concat(compound_config) : item_config
+      with_compound ? item_config.concat(compound_config) : item_config
     end
 
     def item_config
