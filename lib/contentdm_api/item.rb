@@ -42,17 +42,21 @@ module CONTENTdmAPI
     # dmGetCompoundObjectInfo functions
     def metadata
       result.merge('id' => "#{collection}/#{id}")
-            .merge('page' => compounds(result.fetch('page', [])))
+        .merge('page' => compounds(page))
     end
 
     private
+
+    def page
+      result.fetch('page', [])
+    end
 
     def result
       values.first.merge(values.last)
     end
 
     def compounds(page)
-      return page unless with_compound
+      return [] unless with_compound
       page.map do |compound|
         compound.merge(self.class.new(base_url: base_url,
                                       collection: collection,
