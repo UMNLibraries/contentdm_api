@@ -70,7 +70,7 @@ module CONTENTdmAPI
     end
 
     def values
-      responses.map { |resp| remove_errors(parse(resp[:value])) }
+      @values ||= responses.map { |resp| remove_errors(parse(resp[:value])) }
     end
 
     def parse(value)
