@@ -58,6 +58,7 @@ module CONTENTdmAPI
     def compounds(page)
       return [] unless with_compound
       page.map do |compound|
+        return {} unless compound.is_a?(Hash)
         compound.merge(self.class.new(base_url: base_url,
                                       collection: collection,
                                       id: compound['pageptr'],
