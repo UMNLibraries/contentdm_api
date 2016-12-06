@@ -13,15 +13,13 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
-      Host:
-      - server16022.contentdm.oclc.org
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 01 Dec 2016 19:06:28 GMT
+      - Tue, 06 Dec 2016 18:43:58 GMT
       Server:
       - Apache
       X-Powered-By:
@@ -67,7 +65,7 @@ http_interactions:
         by Minnesota voters in 2008.","publis":{},"date":{},"format":{},"digspe":{},"digspa":{},"digspb":{},"digspc":{},"digspd":{},"digspf":{},"digspg":{},"digsph":{},"digspi":{},"digspj":{},"digspk":{},"transc":{},"transl":{},"fullrs":{},"find":"447.cpd","dmaccess":{},"dmimage":{},"dmcreated":"2016-10-11","dmmodified":"2016-10-11","dmoclcno":{},"dmrecord":"446","restrictionCode":"1","cdmfilesize":"1180","cdmfilesizeformatted":"0.00
         MB","cdmprintpdf":"0","cdmhasocr":"0","cdmisnewspaper":"0"}'
     http_version: 
-  recorded_at: Thu, 01 Dec 2016 19:06:29 GMT
+  recorded_at: Tue, 06 Dec 2016 18:43:58 GMT
 - request:
     method: get
     uri: https://server16022.contentdm.oclc.org/dmwebservices/index.php?q=dmGetCompoundObjectInfo/p16022coll39/446/json
@@ -81,15 +79,13 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
-      Host:
-      - server16022.contentdm.oclc.org
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 01 Dec 2016 19:06:29 GMT
+      - Tue, 06 Dec 2016 18:43:58 GMT
       Server:
       - Apache
       X-Powered-By:
@@ -110,7 +106,7 @@ http_interactions:
         art 86-95, Applied art 96-101","pagefile":"445.jp2","pageptr":"444"},{"pagetitle":"Applied
         art 102-122","pagefile":"446.jp2","pageptr":"445"}]}'
     http_version: 
-  recorded_at: Thu, 01 Dec 2016 19:06:29 GMT
+  recorded_at: Tue, 06 Dec 2016 18:43:58 GMT
 - request:
     method: get
     uri: https://server16022.contentdm.oclc.org/dmwebservices/index.php?q=dmGetItemInfo/p16022coll39/438/json
@@ -124,15 +120,13 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
-      Host:
-      - server16022.contentdm.oclc.org
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 01 Dec 2016 19:06:30 GMT
+      - Tue, 06 Dec 2016 18:43:59 GMT
       Server:
       - Apache
       X-Powered-By:
@@ -152,7 +146,7 @@ http_interactions:
         NSTITUTE  OF  ARTS","transl":{},"fullrs":{},"find":"439.jp2","dmaccess":{},"dmimage":{},"dmcreated":"2014-09-11","dmmodified":"2014-09-11","dmoclcno":{},"dmrecord":"438","restrictionCode":"1","cdmfilesize":"220144","cdmfilesizeformatted":"0.21
         MB","cdmprintpdf":"0","cdmhasocr":"1","cdmisnewspaper":"0"}'
     http_version: 
-  recorded_at: Thu, 01 Dec 2016 19:06:30 GMT
+  recorded_at: Tue, 06 Dec 2016 18:43:59 GMT
 - request:
     method: get
     uri: https://server16022.contentdm.oclc.org/dmwebservices/index.php?q=dmGetItemInfo/p16022coll39/439/json
@@ -166,15 +160,13 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
-      Host:
-      - server16022.contentdm.oclc.org
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 01 Dec 2016 19:06:30 GMT
+      - Tue, 06 Dec 2016 18:43:59 GMT
       Server:
       - Apache
       X-Powered-By:
@@ -205,7 +197,7 @@ http_interactions:
         J. W.\n4.     Landscape","transl":{},"fullrs":{},"find":"440.jp2","dmaccess":{},"dmimage":{},"dmcreated":"2014-09-11","dmmodified":"2014-09-11","dmoclcno":{},"dmrecord":"439","restrictionCode":"1","cdmfilesize":"188327","cdmfilesizeformatted":"0.18
         MB","cdmprintpdf":"0","cdmhasocr":"1","cdmisnewspaper":"0"}'
     http_version: 
-  recorded_at: Thu, 01 Dec 2016 19:06:30 GMT
+  recorded_at: Tue, 06 Dec 2016 18:43:59 GMT
 - request:
     method: get
     uri: https://server16022.contentdm.oclc.org/dmwebservices/index.php?q=dmGetItemInfo/p16022coll39/440/json
@@ -219,15 +211,13 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
-      Host:
-      - server16022.contentdm.oclc.org
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 01 Dec 2016 19:06:31 GMT
+      - Tue, 06 Dec 2016 18:43:59 GMT
       Server:
       - Apache
       X-Powered-By:
@@ -254,7 +244,7 @@ http_interactions:
         Still Life","transl":{},"fullrs":{},"find":"441.jp2","dmaccess":{},"dmimage":{},"dmcreated":"2014-09-11","dmmodified":"2014-09-11","dmoclcno":{},"dmrecord":"440","restrictionCode":"1","cdmfilesize":"224579","cdmfilesizeformatted":"0.21
         MB","cdmprintpdf":"0","cdmhasocr":"1","cdmisnewspaper":"0"}'
     http_version: 
-  recorded_at: Thu, 01 Dec 2016 19:06:31 GMT
+  recorded_at: Tue, 06 Dec 2016 18:43:59 GMT
 - request:
     method: get
     uri: https://server16022.contentdm.oclc.org/dmwebservices/index.php?q=dmGetItemInfo/p16022coll39/441/json
@@ -268,15 +258,13 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
-      Host:
-      - server16022.contentdm.oclc.org
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 01 Dec 2016 19:06:31 GMT
+      - Tue, 06 Dec 2016 18:43:59 GMT
       Server:
       - Apache
       X-Powered-By:
@@ -302,7 +290,7 @@ http_interactions:
         Across the Meadow\n44. Autumn Rain\n45. Portrait of Hon. Amos G. Webster","transl":{},"fullrs":{},"find":"442.jp2","dmaccess":{},"dmimage":{},"dmcreated":"2014-09-11","dmmodified":"2014-09-11","dmoclcno":{},"dmrecord":"441","restrictionCode":"1","cdmfilesize":"240399","cdmfilesizeformatted":"0.23
         MB","cdmprintpdf":"0","cdmhasocr":"1","cdmisnewspaper":"0"}'
     http_version: 
-  recorded_at: Thu, 01 Dec 2016 19:06:32 GMT
+  recorded_at: Tue, 06 Dec 2016 18:43:59 GMT
 - request:
     method: get
     uri: https://server16022.contentdm.oclc.org/dmwebservices/index.php?q=dmGetItemInfo/p16022coll39/442/json
@@ -316,15 +304,13 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
-      Host:
-      - server16022.contentdm.oclc.org
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 01 Dec 2016 19:06:33 GMT
+      - Tue, 06 Dec 2016 18:44:00 GMT
       Server:
       - Apache
       X-Powered-By:
@@ -349,7 +335,7 @@ http_interactions:
         MRS. CORICE\n64. Book-ends","transl":{},"fullrs":{},"find":"443.jp2","dmaccess":{},"dmimage":{},"dmcreated":"2014-09-11","dmmodified":"2014-09-11","dmoclcno":{},"dmrecord":"442","restrictionCode":"1","cdmfilesize":"240162","cdmfilesizeformatted":"0.23
         MB","cdmprintpdf":"0","cdmhasocr":"1","cdmisnewspaper":"0"}'
     http_version: 
-  recorded_at: Thu, 01 Dec 2016 19:06:33 GMT
+  recorded_at: Tue, 06 Dec 2016 18:44:00 GMT
 - request:
     method: get
     uri: https://server16022.contentdm.oclc.org/dmwebservices/index.php?q=dmGetItemInfo/p16022coll39/443/json
@@ -363,15 +349,13 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
-      Host:
-      - server16022.contentdm.oclc.org
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 01 Dec 2016 19:06:33 GMT
+      - Tue, 06 Dec 2016 18:44:00 GMT
       Server:
       - Apache
       X-Powered-By:
@@ -397,7 +381,7 @@ http_interactions:
         LOUIS\n85. The Drop Kick","transl":{},"fullrs":{},"find":"444.jp2","dmaccess":{},"dmimage":{},"dmcreated":"2014-09-11","dmmodified":"2014-09-11","dmoclcno":{},"dmrecord":"443","restrictionCode":"1","cdmfilesize":"232809","cdmfilesizeformatted":"0.22
         MB","cdmprintpdf":"0","cdmhasocr":"1","cdmisnewspaper":"0"}'
     http_version: 
-  recorded_at: Thu, 01 Dec 2016 19:06:33 GMT
+  recorded_at: Tue, 06 Dec 2016 18:44:00 GMT
 - request:
     method: get
     uri: https://server16022.contentdm.oclc.org/dmwebservices/index.php?q=dmGetItemInfo/p16022coll39/444/json
@@ -411,15 +395,13 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
-      Host:
-      - server16022.contentdm.oclc.org
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 01 Dec 2016 19:06:34 GMT
+      - Tue, 06 Dec 2016 18:44:00 GMT
       Server:
       - Apache
       X-Powered-By:
@@ -445,7 +427,7 @@ http_interactions:
         Ring, Gold and Scarab\n101. Cross and Chain","transl":{},"fullrs":{},"find":"445.jp2","dmaccess":{},"dmimage":{},"dmcreated":"2014-09-11","dmmodified":"2014-09-11","dmoclcno":{},"dmrecord":"444","restrictionCode":"1","cdmfilesize":"227766","cdmfilesizeformatted":"0.22
         MB","cdmprintpdf":"0","cdmhasocr":"1","cdmisnewspaper":"0"}'
     http_version: 
-  recorded_at: Thu, 01 Dec 2016 19:06:34 GMT
+  recorded_at: Tue, 06 Dec 2016 18:44:00 GMT
 - request:
     method: get
     uri: https://server16022.contentdm.oclc.org/dmwebservices/index.php?q=dmGetItemInfo/p16022coll39/445/json
@@ -459,15 +441,13 @@ http_interactions:
       - "*/*"
       User-Agent:
       - Ruby
-      Host:
-      - server16022.contentdm.oclc.org
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Thu, 01 Dec 2016 19:06:35 GMT
+      - Tue, 06 Dec 2016 18:44:00 GMT
       Server:
       - Apache
       X-Powered-By:
@@ -493,5 +473,5 @@ http_interactions:
         VALETTA\n119.\nSatsuma Bowl\nWIARD,\nC. L.\n120.\nBelleek Marmalade Jar\n121.\nCandlestick\n122.\nHexagonal  Belleek   Vase","transl":{},"fullrs":{},"find":"446.jp2","dmaccess":{},"dmimage":{},"dmcreated":"2014-09-11","dmmodified":"2014-09-11","dmoclcno":{},"dmrecord":"445","restrictionCode":"1","cdmfilesize":"236999","cdmfilesizeformatted":"0.23
         MB","cdmprintpdf":"0","cdmhasocr":"1","cdmisnewspaper":"0"}'
     http_version: 
-  recorded_at: Thu, 01 Dec 2016 19:06:35 GMT
+  recorded_at: Tue, 06 Dec 2016 18:44:01 GMT
 recorded_with: VCR 3.0.3

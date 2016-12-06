@@ -5,7 +5,7 @@ module CONTENTdmAPI
     it "produces a default set of url params" do
       service = Service.new(function: 'FindStuff', params: ['big_and_tall_collection', 1])
       request = CONTENTdmAPI::Request.new(base_url: 'https://example.com', service: service)
-      request.url.must_equal 'https://example.com?q=FindStuff/big_and_tall_collection/1/json'
+      request.uri.request_uri.must_equal '/?q=FindStuff/big_and_tall_collection/1/json'
     end
 
     describe "when a service with no arguments has been called from a request" do

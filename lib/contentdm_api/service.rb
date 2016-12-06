@@ -28,7 +28,7 @@ module CONTENTdmAPI
     private
 
     def all_params
-      params.concat([format])
+      params.concat([format]).uniq
     end
   end
 end

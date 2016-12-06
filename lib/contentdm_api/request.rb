@@ -20,20 +20,32 @@ module CONTENTdmAPI
     #
     # @return [String] either XML or JSON
     def fetch
-      request
+      request.body
+    end
+
+    def uri
+      @uri = URI.parse(unencoded_url)
+    end
+
+    private
+
+    def http
+      http = client.new(uri.host, uri.port)
+      http.read_timeout = 300
+      http.open_timeout = 120
+      http.use_ssl = (uri.scheme == "https")
+      http
+    end
+
+    def request
+      http.request(client::Get.new(uri.request_uri))
     end
 
     # A URL for a given service
     #
     # @return [String] a url string
-    def url
+    def unencoded_url
       "#{base_url}?q=#{service.url_params}"
-    end
-
-    private
-
-    def request
-      @response ||= client.get_response(URI(url)).body
     end
   end
 end
