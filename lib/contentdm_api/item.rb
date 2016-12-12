@@ -54,7 +54,7 @@ module CONTENTdmAPI
     def result
       return if values.first == {} && values.last == {}
       if values.length > 1
-        values.first.merge('page' => values.last['page'])
+        values.first.merge('page' => values.last.fetch('page', []))
       else
         values.first
       end
