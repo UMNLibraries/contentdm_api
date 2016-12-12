@@ -52,11 +52,17 @@ module CONTENTdmAPI
     end
 
     def result
-      values.first.merge(values.last)
+      return if values.first == {} && values.last == {}
+      if values.length > 1
+        values.first.merge('page' => values.last['page'])
+      else
+        values.first
+      end
     end
 
     def compounds(page)
       return [] unless with_compound
+      raise "====================================#{values.inspect}" if page == nil
       page.map do |compound|
         return {} unless compound.is_a?(Hash)
         compound.merge(self.class.new(base_url: base_url,
