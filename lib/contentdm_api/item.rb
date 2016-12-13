@@ -41,8 +41,11 @@ module CONTENTdmAPI
     # @return [Hash] Merged responses from the dmGetItemInfo and
     # dmGetCompoundObjectInfo functions
     def metadata
-      result.merge('id' => "#{collection}/#{id}")
-        .merge('page' => compounds(page))
+      if with_compound
+        result_with_id.merge('page' => compounds(page))
+      else
+        result_with_id.merge('page' => [])
+      end
     end
 
     private
@@ -51,18 +54,17 @@ module CONTENTdmAPI
       result.fetch('page', [])
     end
 
+    def result_with_id
+      @result_with_id ||= result.merge('id' => "#{collection}/#{id}")
+    end
+
     def result
-      return if values.first == {} && values.last == {}
-      if values.length > 1
-        values.first.merge('page' => values.last.fetch('page', []))
-      else
-        values.first
-      end
+      values.first.merge('page' => values.last.fetch('page', []))
     end
 
     def compounds(page)
-      return [] unless with_compound
       page.map do |compound|
+        # API gives inconsistent results
         return {} unless compound.is_a?(Hash)
         compound.merge(self.class.new(base_url: base_url,
                                       collection: collection,
