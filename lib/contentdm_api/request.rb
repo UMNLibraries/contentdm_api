@@ -31,7 +31,7 @@ module CONTENTdmAPI
 
     def http
       http = client.new(uri.host, uri.port)
-      http.read_timeout = 300
+      http.read_timeout = 1200
       http.open_timeout = 120
       http.use_ssl = (uri.scheme == "https")
       http
