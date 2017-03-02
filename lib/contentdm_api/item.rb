@@ -63,7 +63,7 @@ module CONTENTdmAPI
     end
 
     def compounds(page)
-      page.map do |compound|
+      [page].flatten.map do |compound|
         # API gives inconsistent results
         return {} unless compound.is_a?(Hash)
         compound.merge(self.class.new(base_url: base_url,
