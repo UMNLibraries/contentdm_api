@@ -62,6 +62,7 @@ module CONTENTdmAPI
       values.first.merge('page' => values.last.fetch('page', []))
     end
 
+    # TODO: if given a &block yield each compound.
     def compounds(page)
       [page].flatten.map do |compound|
         # API gives inconsistent results
