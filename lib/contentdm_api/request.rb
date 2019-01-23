@@ -1,4 +1,5 @@
-require 'net/http'
+require 'http'
+
 module CONTENTdmAPI
   # Form requests to the ContentDM API
   class Request
@@ -10,7 +11,7 @@ module CONTENTdmAPI
     #  params and format to request of the CONTENTdm API
     #
     # @return [Void]
-    def initialize(base_url: '', client: Net::HTTP, service: Service.new)
+    def initialize(base_url: '', client: HTTP, service: Service.new)
       @base_url = base_url
       @client   = client
       @service  = service
@@ -20,25 +21,7 @@ module CONTENTdmAPI
     #
     # @return [String] either XML or JSON
     def fetch
-      request.body
-    end
-
-    def uri
-      @uri = URI.parse(unencoded_url)
-    end
-
-    private
-
-    def http
-      http = client.new(uri.host, uri.port)
-      http.read_timeout = 1200
-      http.open_timeout = 120
-      http.use_ssl = (uri.scheme == "https")
-      http
-    end
-
-    def request
-      http.request(client::Get.new(uri.request_uri))
+      client.get(unencoded_url).to_s
     end
 
     # A URL for a given service

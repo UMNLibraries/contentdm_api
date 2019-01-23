@@ -42,13 +42,32 @@ module CONTENTdmAPI
     # dmGetCompoundObjectInfo functions
     def metadata
       if with_compound
-        result_with_id.merge('page' => compounds(page))
+        result_with_id.merge('page' => compounds_to_h)
       else
         result_with_id.merge('page' => [])
       end
     end
 
+    def to_h
+      result_with_id
+    end
+
+    def compounds_to_h
+      [page].flatten.map do |compound|
+        block_given? ? yield(compound(compound)) : compound(compound)
+      end
+    end
+
     private
+
+    def compound(compound)
+      # API gives inconsistent results
+      return {} unless compound.is_a?(Hash)
+      compound.merge(self.class.new(base_url: base_url,
+                                    collection: collection,
+                                    id: compound['pageptr'],
+                                    with_compound: false).metadata)
+    end
 
     def page
       result.fetch('page', [])
@@ -60,18 +79,6 @@ module CONTENTdmAPI
 
     def result
       values.first.merge('page' => values.last.fetch('page', []))
-    end
-
-    # TODO: if given a &block yield each compound.
-    def compounds(page)
-      [page].flatten.map do |compound|
-        # API gives inconsistent results
-        return {} unless compound.is_a?(Hash)
-        compound.merge(self.class.new(base_url: base_url,
-                                      collection: collection,
-                                      id: compound['pageptr'],
-                                      with_compound: false).metadata)
-      end
     end
 
     def remove_errors(value)
