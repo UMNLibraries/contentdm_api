@@ -48,10 +48,6 @@ module CONTENTdmAPI
       end
     end
 
-    def to_h
-      result_with_id
-    end
-
     def compounds_to_h
       [page].flatten.map do |compound|
         block_given? ? yield(compound(compound)) : compound(compound)
