@@ -15,7 +15,10 @@ module CONTENTdmAPI
     # @param [String] collection The CONTENTdm API calls this an "alias"
     # @param [Integer] id The CONTENTdm API calls this a "pointer". It is the
     #   identifier for a a given CONTENTdm item.
-    # @param [Boolean] with_compound Include compound object info?
+    # @param [Boolean] with_compound Recursively request and in clude full
+    #   compound item data? If false, basic compound data will STILL be
+    #   included in the array value of the item hash key 'page'. 'page' is the
+    #   term CONTENTdm uses to signify a list of child pages for an item.
     # @param [Boolean] enrich_compount Fetch and merge full item info for each
     # compound?
     # @param [Object] requester A class to make requests of the API.
@@ -44,12 +47,12 @@ module CONTENTdmAPI
       if with_compound
         result_with_id.merge('page' => compounds_to_h)
       else
-        result_with_id.merge('page' => [])
+        result_with_id.merge('page' => page)
       end
     end
 
     def compounds_to_h
-      [page].flatten.map do |compound|
+      page.map do |compound|
         block_given? ? yield(compound(compound)) : compound(compound)
       end
     end
@@ -66,7 +69,9 @@ module CONTENTdmAPI
     end
 
     def page
-      result.fetch('page', [])
+      # Single result pages come back as a hash. Cast them into and array to
+      # make our api more consistent
+      [result.fetch('page', [])].flatten
     end
 
     def result_with_id
@@ -94,7 +99,7 @@ module CONTENTdmAPI
     end
 
     def service_configs
-      with_compound ? item_config.concat(compound_config) : item_config
+      item_config.concat(compound_config)
     end
 
     def item_config
